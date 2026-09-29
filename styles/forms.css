@@ -1,13 +1,14 @@
-@import url(fields/index.css);
-
 form {
+  display: grid;
+  gap: 3rem;
   margin-top: 3rem;
 }
 
 fieldset {
-  border: none;
   display: grid;
   gap: 1.5rem;
+  min-inline-size: 0;
+  border: none;
 }
 
 legend {
@@ -15,12 +16,8 @@ legend {
   margin-bottom: 1.5rem;
 }
 
-fieldset + fieldset {
-  margin-top: 3rem;
-}
-
-.actions-wrapper {
-  margin-top: 3rem;
+.form-actions {
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
 }

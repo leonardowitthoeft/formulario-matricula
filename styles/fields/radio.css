@@ -1,49 +1,51 @@
-label + .radio-wrapper {
-  margin-top: 1rem;
-}
-
-.radio-wrapper {
-  display: grid;
+.choice-group {
   grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
   gap: 1rem;
+
+  & legend {
+    font: var(--text-sm);
+    margin-bottom: 1rem;
+  }
 }
 
-.radio-inner {
-  border: 1px solid var(--stroke-default);
-  border-radius: .5rem;
+.choice-card {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: .5rem;
   padding: 2rem .5rem .5rem;
-  position: relative;
-  & input,
-  & input:focus,
-  & input:hover {
-    all: unset;
-    position: absolute;
-    inset: 0;
-  }
+  border: 1px solid var(--stroke-default);
+  border-radius: .5rem;
+  font: var(--text-sm);
+  cursor: pointer;
 
-  .radio-image {
-    background-image: url(../../assets/icons/radio-default.svg);
-    width: 1.5rem;
-    height: 1.5rem;
+  & input {
+    appearance: none;
     position: absolute;
     top: .5rem;
     left: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../../assets/icons/radio-default.svg) center / contain no-repeat;
+    cursor: pointer;
   }
 
-  &:hover, &:focus-within {
-    border: 1px solid var(--stroke-highlight);
-    & .radio-image {
+  &:is(:hover, :focus-within) {
+    border-color: var(--stroke-highlight);
+
+    & input {
       background-image: url(../../assets/icons/radio-hover.svg);
     }
+  }
+
+  &:has(:focus-visible) {
+    outline: .25rem solid var(--surface-secondary);
   }
 
   &:has(:checked) {
     border: 2px solid var(--stroke-highlight);
 
-    & .radio-image {
+    & input {
       background-image: url(../../assets/icons/radio-checked.svg);
     }
   }

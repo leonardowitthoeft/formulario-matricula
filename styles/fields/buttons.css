@@ -1,27 +1,27 @@
 button {
-  all: unset;
+  padding: .75rem 1.5rem;
+  border: 1px solid var(--text-highlight);
+  border-radius: .5rem;
+  background: none;
   font-weight: 500;
   color: var(--text-highlight);
-  padding: .75rem 1.5rem;
-  border-radius: .5rem;
   cursor: pointer;
 
-  &.btn-primary {
-    color: white;
-    background-color: #E43A12;
-
-    &:hover, &:focus {
-      background-color: #F3541C;
-    }
+  &:focus-visible {
+    outline: .25rem solid var(--surface-secondary);
   }
+}
 
-  &.btn-secondary {
-    margin-left: auto;
-    border: 1px solid var(--text-highlight);
+.btn-primary {
+  background-color: var(--text-highlight);
+  color: var(--surface-primary);
 
-    &:hover, &:focus {
-      color: #E43A12;
-      outline: .25rem solid var(--surface-secondary);
-    }
+  &:is(:hover, :focus-visible) {
+    border-color: var(--stroke-highlight);
+    background-color: var(--stroke-highlight);
   }
+}
+
+.btn-secondary:hover {
+  outline: .25rem solid var(--surface-secondary);
 }
